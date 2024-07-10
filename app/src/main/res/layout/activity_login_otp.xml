@@ -114,6 +114,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Weiter"
+            android:backgroundTint="@color/my_primary"
+
             android:id="@+id/login_next_btn"/>
         <ProgressBar
             android:layout_width="32dp"

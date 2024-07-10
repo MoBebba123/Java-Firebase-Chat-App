@@ -112,8 +112,9 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/btn_rounded_corner"
             android:text="Anmelden"
+            android:backgroundTint="@color/my_primary"
+
             android:id="@+id/login_let_me_in_btn"/>
         <ProgressBar
             android:layout_width="32dp"
