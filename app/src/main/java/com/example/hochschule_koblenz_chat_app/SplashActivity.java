@@ -1,12 +1,9 @@
 package com.example.hochschule_koblenz_chat_app;
 
+import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.activity.EdgeToEdge;
+import android.os.Handler;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -15,5 +12,10 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_splash);
+
+        new Handler().postDelayed(() -> {
+            startActivity(new Intent(SplashActivity.this, LoginPhoneNumberActivity.class));
+            finish();
+        }, 3000); // Assuming a 3-second delay for the splash screen
     }
 }
