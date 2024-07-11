@@ -16,11 +16,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_splash);
-        new Handler().postDelayed(() -> {
-            startActivity(new Intent(MainActivity.this, LoginPhoneNumberActivity.class));
-            finish();
-        }, 3000); // Assuming a 3-second delay for the splash screen
+        setContentView(R.layout.activity_main);
 
     }
 }
