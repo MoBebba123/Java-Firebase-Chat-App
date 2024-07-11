@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.hochschule_koblenz_chat_app.utils.FirebaseUtil;
+
 public class SplashActivity extends AppCompatActivity {
 
     @Override
@@ -12,10 +14,16 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_splash);
-
-        new Handler().postDelayed(() -> {
-            startActivity(new Intent(SplashActivity.this, LoginPhoneNumberActivity.class));
-            finish();
-        }, 3000); // Assuming a 3-second delay for the splash screen
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if(FirebaseUtil.isLoggedIn()){
+                    startActivity(new Intent(SplashActivity.this,MainActivity.class));
+                }else{
+                    startActivity(new Intent(SplashActivity.this,LoginPhoneNumberActivity.class));
+                }
+                finish();
+            }
+        },1000);
     }
 }

@@ -1,4 +1,13 @@
 <resources>
-    <string name="app_name">Hochschule_Koblenz_Chat_App</string>
-    <string name="developed_by_mohamed_bebba">developed_by_mohamed_bebba</string>
+    <string name="app_name">Hochschule Koblenz Chat App</string>
+    <string name="developed_by_mohamed_bebba">developed by mohamed bebba</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="chats">Chats</string>
+    <string name="profile">Profile</string>
+    <string name="search_user">Benutzersuche</string>
+    <string name="user_name">Benutzername</string>
+    <string name="_000000000000">+000000000000</string>
+    <string name="username">Username</string>
+    <string name="write_message_here">Write message here</string>
 </resources>
