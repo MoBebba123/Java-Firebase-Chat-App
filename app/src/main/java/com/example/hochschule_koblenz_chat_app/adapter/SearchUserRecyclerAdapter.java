@@ -3,6 +3,7 @@ package com.example.hochschule_koblenz_chat_app.adapter;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,15 +23,13 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 
 public class SearchUserRecyclerAdapter extends FirestoreRecyclerAdapter<UserModel, SearchUserRecyclerAdapter.UserModelViewHolder> {
 
-
     Context context;
 
-    public SearchUserRecyclerAdapter(@NonNull FirestoreRecyclerOptions<UserModel> options, Context context) {
+    public SearchUserRecyclerAdapter(@NonNull FirestoreRecyclerOptions<UserModel> options,Context context) {
         super(options);
         this.context = context;
     }
 
-    @SuppressLint("SetTextI18n")
     @Override
     protected void onBindViewHolder(@NonNull UserModelViewHolder holder, int position, @NonNull UserModel model) {
         holder.usernameText.setText(model.getUsername());
@@ -39,6 +38,13 @@ public class SearchUserRecyclerAdapter extends FirestoreRecyclerAdapter<UserMode
             holder.usernameText.setText(model.getUsername()+" (Me)");
         }
 
+        FirebaseUtil.getOtherProfilePicStorageRef(model.getUserId()).getDownloadUrl()
+                .addOnCompleteListener(t -> {
+                    if(t.isSuccessful()){
+                        Uri uri  = t.getResult();
+                        AndroidUtil.setProfilePic(context,uri,holder.profilePic);
+                    }
+                });
 
         holder.itemView.setOnClickListener(v -> {
             //navigate to chat activity
@@ -55,7 +61,6 @@ public class SearchUserRecyclerAdapter extends FirestoreRecyclerAdapter<UserMode
         View view = LayoutInflater.from(context).inflate(R.layout.search_user_recycler_row,parent,false);
         return new UserModelViewHolder(view);
     }
-
 
     class UserModelViewHolder extends RecyclerView.ViewHolder{
         TextView usernameText;

@@ -1,5 +1,6 @@
 package com.example.hochschule_koblenz_chat_app;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
